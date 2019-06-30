@@ -1,0 +1,1189 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Trabajo de fin de grado - José Carlos García</title>
+
+	<meta name="author" content="Christoph Giese">
+	<meta name="keywords"
+		content="IOC indicator-of-compromise scoring vetting cyber-defense cert digital-forensics incident-response deutsche-telekom cyber-defense-center cgi1 Christoph-Giese Bonn python python3 django misp">
+	<meta name="description" content="Developing a trace scoring system for cyber security purpose.">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<link rel="stylesheet" href="assets/bulma.min.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<header style="position: absolute;top: 50px; z-index:500; font-size:100px;background-color: rgba(0,0,0,0.5)">
+	</header>
+
+	<style type="text/css">
+		html.dimbg_095 .slide-background.present {
+			opacity: 0.95 !important;
+		}
+
+		html.dimbg_08 .slide-background.present {
+			opacity: 0.8 !important;
+		}
+
+		html.dimbg_06 .slide-background.present {
+			opacity: 0.6 !important;
+		}
+
+		html.dimbg_05 .slide-background.present {
+			opacity: 0.5 !important;
+		}
+
+		html.dimbg_04 .slide-background.present {
+			opacity: 0.4 !important;
+		}
+
+		html.dimbg_03 .slide-background.present {
+			opacity: 0.2 !important;
+		}
+
+		html.dimbg_02 .slide-background.present {
+			opacity: 0.2 !important;
+		}
+
+		html.dimbg_01 .slide-background.present {
+			opacity: 0.1 !important;
+		}
+
+		.overl {
+			background-color: rgba(0, 0, 0, 0.4);
+			-webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.09);
+			-moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.09);
+			box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.09);
+			margin-bottom: 60px;
+		}
+
+		.overlaybottom {
+			background-color: rgba(0, 0, 0, 0.9);
+			margin-bottom: 20% !important;
+		}
+
+		.overlaytop {
+			background-color: rgba(0, 0, 0, 0.9);
+			margin-top: 20% !important;
+		}
+
+		.overlayleft {
+			background-color: rgba(0, 0, 0, 0.9);
+			margin-right: 50% !important;
+		}
+
+		.overlayright {
+			background-color: rgba(0, 0, 0, 0.9);
+			margin-left: 50% !important;
+		}
+
+		.transp_bottom {
+			position: absolute;
+			left: 0;
+			top: 350px;
+			background: rgba(0, 0, 0, .8);
+			height: 1000px;
+			width: 100%;
+		}
+
+		.transp_top {
+			position: absolute;
+			left: 0;
+			top: -600px;
+			background: rgba(0, 0, 0, .8);
+			height: 600px;
+			width: 100%;
+		}
+
+		button {
+			padding: 6px;
+			font-size: 15px;
+		}
+
+		#starshine {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			overflow: hidden;
+		}
+
+		.glow {
+			font-size: 80px;
+			color: #fff;
+			text-align: center;
+			-webkit-animation: glow 1s ease-in-out infinite alternate;
+			-moz-animation: glow 1s ease-in-out infinite alternate;
+			animation: glow 1s ease-in-out infinite alternate;
+		}
+
+		@-webkit-keyframes glow {
+			from {
+				text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+			}
+
+			to {
+				text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+			}
+		}
+
+		button {
+			background-color: rgba(0, 0, 0, 0.4);
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 50px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		img {
+			border: 0 !important;
+			margin: 0 !important;
+		}
+
+		table th {
+			color: white !important;
+		}
+	</style>
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<link rel="preload" href="assets/grafica_triangular.png" as="image">
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section id="title">
+				<section data-state="dimbg_08" data-background-image="assets/titlepage.jpg"
+					data-background-color="black" data-background-transition="none">
+					<h1 class="">Resolución numérica de</h1>
+					<h3>Ecuaciones diferenciales difusas</h3>
+					<p>
+						<img src="assets/logo_uca.png" width="150"
+							style="border: 0; box-shadow: none; background: none">
+					</p>
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+							alt="Licencia de Creative Commons" style="border-width:0"
+							src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está bajo una
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons
+						Reconocimiento 4.0 Internacional</a>.
+
+				</section>
+
+				<section data-state="dimbg_06" data-background-image="assets/titlepage.jpg"
+					data-background-color="black" data-background-transition="none">
+
+					<h1>Tabla de contenidos</h1>
+					<p>
+						<ol>
+							<li>Marco teórico</li>
+							<hr />
+							<li>Conjuntos difusos</li>
+							<ol>
+								<li>Números difusos</li>
+								<li>Principio de extensión de Zadeh</li>
+							</ol>
+							<hr />
+							<li>Ecuaciones diferenciales difusas / Ejemplos</li>
+							<hr />
+							<li>Computación científica de alto rendimiento / Resolución numérica</li>
+							<hr />
+							<li>Conclusiones</li>
+						</ol>
+					</p>
+
+				</section>
+			</section>
+
+			<section id="introduction">
+				<section data-state="intro_1" data-background-image="assets/fuzzy.png">
+					<div class="overl">
+						<h1>
+							¿Qué es la lógica difusa?
+						</h1>
+					</div>
+				</section>
+
+				<section data-state="intro_2">
+					<div class="overl">
+						<h1>
+							Función de pertenencia (Clásica)
+						</h1>
+					</div>
+
+					<div style="padding: 6px">
+						\[
+						\chi_A(x) = \left\{
+						\begin{array}{ccc}
+						1 & si & x \in A \\
+						0 & si & x \notin A
+						\end{array}
+						\right.
+						\]
+					</div>
+
+				</section>
+
+				<section data-state="intro_2">
+					<div class="overl">
+						<h1>
+							Función de pertenencia (Difusa)
+						</h1>
+					</div>
+
+					<div style="padding: 6px">
+						\[
+						\mu_A(x) : \mathbb{U} \longrightarrow [0, 1]
+						\]
+					</div>
+
+				</section>
+				<section data-state="intro_3">
+					<div class="overl fragment animated move-to-middle-top" data-animated-duration="100">
+						<h1>
+							Ejemplos
+						</h1>
+					</div>
+
+					<div class="fragment animated scale-up" data-animated-scale-up-to="2" data-animated-duration="100">
+						<div class="" style="padding-top: 6px;" data-animated-duration="100"
+							data-animated-scale-up-to="2">
+							<h1>
+								<i class="fas fa-male" style="color: black"></i> <i style="color: pink;"
+									class="fas fa-assistive-listening-systems"></i> <i style="color: green"
+									class="fas fa-eye"></i> <i class="fas fa-bomb" style="color: orange"></i> <i
+									class="fas fa-ruler" style="color: blue"></i>
+							</h1>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section id="fuzzy_sets">
+				<section data-state="intro_1" data-background-image="assets/fondo2.png">
+					<div class="overl">
+						<h1>
+							Conjuntos difusos
+						</h1>
+					</div>
+				</section>
+
+				<section data-state="intro_2">
+					<div class="overl">
+						<h1>
+							\[
+							\alpha-corte
+							\]
+						</h1>
+					</div>
+
+					<div id="matematica-1">
+						\[
+						[A]_\alpha = \left\{
+						\begin{array}{ccc}
+						\{x \in \mathbb{U} : \mu_A(x) \geq \alpha \} & si & \alpha \in (0, 1] \\
+						cl\{x \in \mathbb{U} : \mu_A(x) > 0\} & si & \alpha=0
+						\end{array}
+						\right.,
+						\]
+					</div>
+					<div id="idea-1" style="display: none;">
+						<input type="range" id="idea-1-range" min="0" max="100">
+						<h3 id="idea-1-alpha">175 cm</h3>
+						<p id="idea-1-male-size" style="font-size: 125px;">
+							&ge;
+							<i class="fas fa-male"></i>
+						</p>
+					</div>
+
+					<h1>
+						<i id="btn-1" class="far fa-lightbulb" style="cursor: pointer;"></i>
+					</h1>
+
+					<script type="text/javascript">
+						var btn1 = document.getElementById('btn-1');
+						var idea1 = document.getElementById('idea-1');
+						var matematica1 = document.getElementById('matematica-1');
+						var range1 = document.getElementById('idea-1-range');
+
+						btn1.addEventListener('click', function () {
+							if (btn1.classList.contains('far')) {
+								btn1.classList.remove('far');
+								btn1.classList.add('fas');
+
+								idea1.style.display = 'block';
+								matematica1.style.display = 'none';
+
+							} else {
+								btn1.classList.remove('fas');
+								btn1.classList.add('far');
+
+								matematica1.style.display = 'block';
+								idea1.style.display = 'none';
+							}
+						});
+
+						range1.addEventListener('input', function () {
+							var alpha = (range1.value / 100.0);
+
+							if (alpha == 0)
+								document.getElementById('idea-1-alpha').innerText = "170 cm";
+							else
+								document.getElementById('idea-1-alpha').innerText = (170 + alpha * 10) + " cm";
+							document.getElementById('idea-1-male-size').style.fontSize = (100 + 50 * alpha) + "px";
+						});
+					</script>
+				</section>
+
+				<section data-state="intro_1">
+					<div class="overl">
+						<h1>
+							Números difusos
+						</h1>
+					</div>
+
+					<ol id="matematica-2">
+						<li>Función de pertenencia cuasicóncava</li>
+						<li>Existe algún elemento que vale 1 en la función de pertenencia</li>
+					</ol>
+					<div id="idea-2" style="display: none;">
+						<img src="assets/grafica_triangular.png" style="width: 30%; border: 0;">
+					</div>
+
+					<h1>
+						<i id="btn-2" class="far fa-lightbulb" style="cursor: pointer;"></i>
+					</h1>
+
+					<hr>
+
+					El conjunto de los números difusos los denotamos por $\mathcal{F}_\mathcal{H}(\mathbb{R}^n)$
+
+					<script type="text/javascript">
+						var btn2 = document.getElementById('btn-2');
+						var idea2 = document.getElementById('idea-2');
+						var matematica2 = document.getElementById('matematica-2');
+
+						btn2.addEventListener('click', function () {
+							if (btn2.classList.contains('far')) {
+								btn2.classList.remove('far');
+								btn2.classList.add('fas');
+
+								idea2.style.display = '';
+								matematica2.style.display = 'none';
+
+							} else {
+								btn2.classList.remove('fas');
+								btn2.classList.add('far');
+
+								matematica2.style.display = '';
+								idea2.style.display = 'none';
+							}
+						});
+					</script>
+				</section>
+
+
+				<section data-state="intro_1">
+					<div class="overl">
+						<h1>
+							Principio de extensión de Zadeh
+						</h1>
+					</div>
+					\[
+					\mu_{\hat{f}(A)}(y)=\left\{
+					\begin{array}{ccc}
+					\sup_{x\in f^{-1}(y)} \mu_A(x) & si & f^{-1}(y)\neq\emptyset\\
+					0 & si & f^{-1}=\emptyset
+					\end{array}
+					\right. ,
+					\]
+				</section>
+
+				<section data-state="intro_3">
+					<div class="overl">
+						<h1>
+							Aritmética difusa
+						</h1>
+					</div>
+
+					$$
+					[A+B]_\alpha = [a_\alpha^- + b_\alpha^-, a_\alpha^+ + b_\alpha^+]
+					$$
+
+					<div class="fragment animated scale-up" data-animated-scale-up-to="2" data-animated-duration="100">
+						$$
+						[A-B]_\alpha = [a_\alpha^- - b_\alpha^+, a_\alpha^+ - b_\alpha^-]
+						$$
+					</div>
+
+					$$
+					[A \cdot B]_\alpha = \left[ \min_{s, r \in \{-, +\}} a_\alpha^s \cdot b_\alpha^r, \max_{s, r \in
+					\{-, +\}} a_\alpha^s \cdot b_\alpha^r\right]
+					$$
+
+					$$
+					[A \div B]_\alpha = \left[ \min_{s, r \in \{-, +\}} \frac{a_\alpha^s}{b_\alpha^r}, \max_{s, r \in
+					\{-, +\}} \frac{a_\alpha^s}{b_\alpha^r}\right]
+					$$
+				</section>
+
+				<section data-state="intro_3">
+					<div class="overl">
+						<h1>
+							Problemas con la derivada difusa
+						</h1>
+					</div>
+					<div class="fragment">
+						$$
+						\lim\limits_{h\rightarrow 0} \frac{f(x+h) - f(x)}{h}
+						$$
+					</div>
+
+					<p class="fragment fade-in-then-out">$$[f(x+h) - f(x)]=[A-A]$$</p>
+					<p class="fragment fade-in-then-out">$$[A-A]_\alpha = [a_\alpha^- - a_\alpha^+, a_\alpha^+ -
+						a_\alpha^-]$$</p>
+					<p class="fragment fade-in-then-out">$$\lim\limits_{h\rightarrow 0} \frac{[a_\alpha^- - a_\alpha^+,
+						a_\alpha^+ - a_\alpha^-]}{h}$$</p>
+				</section>
+
+
+				<section data-transition="fade-out">
+					<div class="overl">
+						<h1>
+							Problemas con la derivada difusa
+						</h1>
+					</div>
+					<h1 class="fragment">
+						No es compacto <i class="fas fa-frown"></i>, no es un número difuso
+					</h1>
+				</section>
+
+				<section data-state="intro_3">
+					<div class="overl">
+						<h1>
+							Otras definiciones de diferencias
+						</h1>
+					</div>
+					<p class="fragment fade-in">
+						<b>Diferencia de Hukuhara (H-Diferencia): </b> $A \circleddash_H B = C$ $\rightarrow$ $A=B+C$
+					</p>
+					<p class="fragment fade-in">
+						<b>Diferencia de Hukuhara generalizada: </b> $A\circleddash_{gH}B=C$ $\rightarrow$ $A=B+C$ y
+						$B=A-C$
+					</p>
+				</section>
+			</section>
+
+			<section id="ecuaciones-diferenciales">
+				<section data-state="intro_1" data-background-image="assets/zadeh_fondo.jpg">
+					<div class="overl">
+						<h1>
+							Ecuaciones diferenciales difusas
+						</h1>
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Derivada según Hukuhara
+						</h1>
+					</div>
+
+					$$
+					F'_H(x_0) = \lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} =
+					\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
+					$$
+
+					$$
+					F'_H(x_0) \in \mathcal{F}_\mathcal{H}(\mathbb{R}^n)
+					$$
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Ejemplo (Función constante)
+						</h1>
+					</div>
+					<p>
+						Sea $F(x)=A \in \mathcal{F}_\mathcal{H}(\mathbb{R}^n)$ y $x_0 \in \mathbb{R}$:
+					</p>
+					<div class="fragment fade-in">
+						\[
+						F(x_0 + h) \circleddash_H F(x_0) = A \circleddash_H A = 0
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						F(x_0) \circleddash_H F(x_0 - h) = A \circleddash_H A = 0
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						Por tanto, $F_H'(x_0) = 0$
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Ejemplo (Función lineal)
+						</h1>
+					</div>
+					<p>
+						Sea $F(x)=A x$, con $A=(-1; 0; 1)$ y $x_0 \in \mathbb{R}$
+					</p>
+
+					<p class="fragment fade-in">
+						$$
+						F(x_0 + h) \circleddash_H F(x_0) = A(x_0 + h) \circleddash_H A = (-x_0 - h; 0; x+h)
+						\circleddash_H (-x_0;0;x_0)
+						$$
+					</p>
+
+					<p class="fragment fade-in">
+						Si $x_0 < 0$ no estaría definido $(-x_0 - h; 0; x+h)$ ni $(-x_0;0;x_0)$ </p> <p
+							class="fragment fade-in">
+							Si $x_0\geq 0$, $(-x_0 - h; 0; x_0+h) \circleddash_H (-x_0; 0; x_0) = (-h; 0; h)$
+					</p>
+
+					<p class="fragment fade-in">
+						Además, $F(x) \circleddash_H F(x - h) = (-h; 0; h)$
+					</p>
+
+					<p class="fragment fade-in">
+						Por tanto, $F_H'(x_0) = A $, si $x_0 > 0$.
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Construir funciones H-Diferenciables
+						</h1>
+					</div>
+
+
+					<p class="fragment fade-in">
+						Sea $g \in \mathcal{C}(B)^2$, $B \in \mathbb{R}$
+					</p>
+
+					<p class="fragment fade-in">
+						Supongamos que $g'(x), g(x) > 0$ para $x \in B$
+					</p>
+
+					<p class="fragment fade-in">
+						Sea $A \in \mathcal{F}_\mathcal{H}(\mathbb{R})$
+					</p>
+
+					<p class="fragment fade-in">
+						Si $G(x)=A g(x)$ entonces $G'_\mathcal{H}(x) = A g'(x)$
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Álgebra de funciones H-Diferenciables
+						</h1>
+					</div>
+
+					Sean $F, G : [a, b] \rightarrow \mathcal{F}_\mathcal{H}(\mathbb{R}^n)$ funciones diferenciables y
+					sea $\lambda \in \mathbb{R}$. Entonces, $(F+G)_H' = F'_H + G_H'$ y $(\lambda F)_H' = \lambda F'_H$.
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Derivada de Hukuhara generalizada
+						</h1>
+					</div>
+
+					<div class="fragment fade-in">
+						<ul>
+							<li>
+								\[
+								\begin{array}{c||c}
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
+								\end{array}
+								\]
+							</li>
+
+							<li>
+								\[
+								\begin{array}{c||c}
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
+								\end{array}
+								\]
+							</li>
+
+							<li>
+								\[
+								\begin{array}{c||c}
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
+								\end{array}
+								\]
+							</li>
+
+							<li>
+								\[
+								\begin{array}{c||c}
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
+								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
+								\end{array}
+								\]
+							</li>
+						</ul>
+
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Otras definiciones de derivada
+						</h1>
+					</div>
+
+					<b>Diferencial de Huhukara generalizada:</b>
+					\[
+					F'_{g}(x_0)=\lim\limits_{h \rightarrow 0} \frac{F(x_0 + h) \circleddash_{gH} F(x_0)}{h}
+					\]
+
+					<div class="fragment fade-in">
+						Se pueden encontrar más definición en el trabajo de fin de grado
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Algunas nociones sobre integrales
+						</h1>
+					</div>
+
+					<p class="fragment fade-in">
+						Integrales de Riemann de manera análoga a la definición clásica.
+					</p>
+
+					<p class="fragment fade-in">
+						El $\alpha$-corte de una integral es la integral de los límites inferiores y superiores del
+						$\alpha$-corte.
+					</p>
+
+					<p class="fragment fade-in">
+						Álgebra de integrales de manera análoga que el cálculo clásico.
+					</p>
+
+					<p class="fragment fade-in">
+						¡TEOREMA FUNDAMENTAL DEL CÁLCULO PARA FUNCIONES H-DIFERENCIABLES!
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Ecuaciones diferenciales difusas</h1>
+					</div>
+					Dado un número difuso $X_0$, se trata de hallar una función $X:[0,T] \rightarrow F_H(U)$ tal que:
+					\begin{equation}
+					X'(t) = f(t, X(t)), ~ X(0) = X_0,
+					\end{equation}
+
+					<p class="fragment fade-in">
+						$f : [O, T] \times \mathcal{F}_\mathcal{H}(\mathbb{U}) \rightarrow \mathcal{F}(\mathbb{R}^n)$ se
+						obtiene mediante el principio de extensión de Zadeh aplicado a una función continua $g : [0, T]
+						\times U \rightarrow \mathbb{R}^n$
+					</p>
+
+					<p class="fragment fade-in">
+
+						\[
+						[f(t, X)]_\alpha = g(t, [X]_\alpha).
+						\]
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Ecuaciones diferenciales difusa</h1>
+					</div>
+
+					<b>Ecuación diferencial ordinaria asociada</b>
+					\begin{equation}
+					x'(t) = g(t, x(t)), ~ x(0) = c.
+					\end{equation}
+
+					<p class="fragment fade-in">
+						$X(t)$ es una solución difusa si existe una solución $x(t,c)$ ordinaria y, para cada t fijo, se
+						tiene que:
+
+						\[
+						X(t) = \hat x (t, X_0),
+						\]
+					</p>
+					<p class="fragment fade-in">
+						$\hat x(t, X_0)$ es el resultado de aplicar el principio de extensión de Zadeh respecto al
+						parámetro c a la función x(t,c).
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1 class="glow">Teorema de equivalencia</h1>
+					</div>
+
+					<p class="fragment fade-in">
+						Sea $U$ un conjunto abierto sobre $\mathbb{R}^n$ y $[X_0]_\alpha \subset U$ con $\alpha \in
+						[0, 1]$
+					</p>
+
+					<p class="fragment fade-in">
+						Sea $g$ una función continua, y suponga que para cada $c \in U$ existe una única solución
+						$x(\cdot, c)$ del problema asociado y también que $x(t, \cdot)$ es continúa para todo $t \in
+						[0, T]$ fijado.
+					</p>
+
+					<p class="fragment fade-in">
+						Entonces, existe una única solución difusa $X(t) = \hat{x}(t, x_0)$ del problema
+						difuso
+					</p>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Ejemplo 1
+						</h1>
+					</div>
+
+					<div id="magic-solver-1-problem">
+						\[
+						\left\{
+						\begin{array}{ccc}
+						X' & = & - X(t) \\
+						X(0) & = & C
+						\end{array}
+						\right.,
+						\]
+					</div>
+					<div id="magic-solver-1" style="display: none">
+						\[
+						\left\{
+						\begin{array}{ccc}
+						x' & = & - x(t) \\
+						x(0) & = & c
+						\end{array}
+						\right..
+						\]
+						Por tanto,
+						\[
+						x(t, c) = c e^{-t}.
+						\]
+						Estamos en condiciones del teorema de equivalencia,
+						\[
+						X(t) = C \cdot e^{-t}.
+						\]
+					</div>
+
+					<button id="magic-solver-1-push" type="button">Resolver</button>
+
+					<script type="text/javascript">
+						var pusher = document.getElementById('magic-solver-1-push');
+						var show = document.getElementById('magic-solver-1');
+						var problem = document.getElementById('magic-solver-1-problem');
+						pusher.onclick = function () {
+							show.style.display = 'block';
+							problem.style.display = 'none';
+							pusher.style.display = 'none';
+						}
+					</script>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>
+							Ejemplo 2
+						</h1>
+					</div>
+
+					<div id="magic-solver-2-problem">
+						\[
+						\left\{
+						\begin{array}{ccc}
+						X' & = & X^2(t) \\
+						X & = & C
+						\end{array}
+						\right.,
+						\]
+					</div>
+					<div id="magic-solver-2" style="display: none">
+						\[
+						x'(t) = x^2(t), ~ x(0) = c
+						\]
+						y la solución de este problema viene dado por:
+						\[
+						x(t, c) = \frac{c}{1-tc},
+						\]
+						Teniendo en cuenta el número difuso C:
+						\[
+						[X(t)]_\alpha = \left[
+						\frac{1+\alpha}{1-t-t\alpha}, \frac{3-\alpha}{1-3t + t\alpha}
+						\right]
+						\]
+					</div>
+
+					<button id="magic-solver-2-push" type="button">Resolver</button>
+
+					<script type="text/javascript">
+						var pusher = document.getElementById('magic-solver-2-push');
+						var show = document.getElementById('magic-solver-2');
+						var problem = document.getElementById('magic-solver-2-problem');
+						pusher.onclick = function () {
+							show.style.display = 'block';
+							problem.style.display = 'none';
+							pusher.style.display = 'none';
+						}
+					</script>
+
+				</section>
+			</section>
+
+			<section>
+				<section data-background-image="assets/ada_bg.jpg">
+					<div class="overl">
+						<h2>
+							Computación científica de alto rendimiento
+						</h2>
+					</div>
+				</section>
+				<section>
+					<div class="overl">
+						<h1>Clasificación según componentes</h1>
+					</div>
+
+					<p class="fragment fade-in">
+						Programación en CPU
+					</p>
+
+					<p class="fragment fade-in">
+						Programación en GPU
+					</p>
+
+					<p class="fragment fade-in">
+						Programación en Cluster
+					</p>
+				</section>
+				<section data-background-image="assets/uca_super.jpg">
+					<div class="overl">
+						<h1>Técnicas de alto rendimiento</h1>
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Consumo energético</h1>
+					</div>
+
+					<h1>
+						<i class="fas fa-battery-full" style="color: green;font-size: 200px"></i>
+					</h1>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Programación de bajo nivel</h1>
+					</div>
+
+					<div id="magic-solver-3" style="display: none">
+						<img src="assets/cvspython.png" width="1000">
+					</div>
+
+					<button id="magic-solver-3-push" type="button">Ejecutar prueba</button>
+
+					<script type="text/javascript">
+						var pusher = document.getElementById('magic-solver-3-push');
+						var show = document.getElementById('magic-solver-3');
+						pusher.onclick = function () {
+							show.style.display = '';
+							//problem.style.display = 'none';
+							pusher.style.display = 'none';
+						}
+					</script>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Algoritmos en precisión mixta</h1>
+					</div>
+
+					<table>
+						<tr>
+							<th></th>
+							<th>Tiempo de ejecución</th>
+							<th>Iteraciones en simple precisión</th>
+							<th>Iteraciones en doble precisión</th>
+						</tr>
+						<tr>
+							<td>Simple</td>
+							<td>0.001s</td>
+							<td>99</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>Doble</td>
+							<td>0.001s</td>
+							<td>0</td>
+							<td>265</td>
+						</tr>
+						<tr>
+							<td>Mixta</td>
+							<td>0.001s</td>
+							<td>99</td>
+							<td>166</td>
+						</tr>
+					</table>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Paralelización de algoritmos</h1>
+					</div>
+
+					<p class="fragment fade-in">
+						Un algoritmo de $n$ pasos se puede paralelizar si cada iteración es independiente
+					</p>
+
+					<p class="fragment fade-in">
+						El valor devuelto de esa iteración no depende del resto de iteraciones.
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Ejemplos</h1>
+					</div>
+
+					<p class="fragment fade-in">
+						Resolución numérica de sistemas ecuaciones con métodos como el de Jacobi.
+					</p>
+
+					<p class="fragment fade-in">
+						Resolución de ecuaciones diferenciales con diferencias finitas o elementos finitos.
+					</p>
+
+					<p class="fragment fade-in">
+						Criptografía, Big data...
+					</p>
+
+					<p class="fragment fade-in glow">
+						PARA RESOLVER ECUCACIONES DIFERENCIALES DIFUSAS
+					</p>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Demo</h1>
+					</div>
+
+					$$u : (a, b) \times \mathbb{R} \rightarrow \mathbb{R},$$
+					$$
+					\frac{\delta u}{\delta t} (x, t) = \frac{\delta u}{\delta x} (x, t),
+					$$
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Demo</h1>
+					</div>
+
+					\[
+					u_{i, j+1} = u_{i, j} + \mu (u_{i-1, j} - 2 u_{i, j} + u_{i+1, j})
+					\]
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Demo: Tiempos</h1>
+					</div>
+
+					<img src="assets/timeparalell.png" width="1200">
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Demo: Consumo eléctrico</h1>
+					</div>
+
+					<img src="assets/energyparalell.png" width="1200">
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Mejoras en compilación: -ofast</h1>
+					</div>
+
+					<ul>
+						<li class="fragment fade-in">
+							Operaciones como dividir entre $0$ no genera excepciones.
+						</li>
+
+						<li class="fragment fade-in">
+							Desactivar propiedades aritméticas coma flotante,
+							\[
+							(x+y)+z \neq x + (y+z)
+							\]
+						</li>
+
+						<li class="fragment fade-in">
+							Desactiva las cantidades nan e inf.
+						</li>
+
+						<li class="fragment fade-in">
+							Desactivar otras funciones para controlar errores matemáticos
+						</li>
+
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section data-background-image="assets/antigua-ciudad-babilonia.jpg">
+					<div class="overl">
+						<h2>Resolución numérica de ecuaciones diferenciales difusas</h2>
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Método de Euler</h1>
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						\begin{array}{ccc}
+						y'(x) & = &f(x, y) \\
+						y(x_0) & = & y_0
+						\end{array},
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						x_i = x_0 + i h,
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						y_{i+1} = y_i + h f(x_i, y_i).
+						\]
+					</div>
+				</section>
+				<section>
+					<div class="overl">
+						<h1>Método de Euler difuso</h1>
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						\begin{array}{ccc}
+						y'(x) & = &f(x, y) \\
+						y(x_0) & = & A
+						\end{array},
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						Suponemos teorema de equivalencia entre EDO y EDD
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						\begin{array}{ccc}
+						y' & = &f(x, y) \\
+						y(x_0) & = & a
+						\end{array}
+						\]
+						donde $a \in A$.
+					</div>
+				</section>
+
+				
+			</section>
+		</div>
+	</div>
+	<!-- REVEAL configuration -->
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+
+		Reveal.initialize({
+
+			showNotes: true,
+			slideNumber: true,
+			controls: true,
+			progress: true,
+			history: true,
+			width: 2048,
+
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			dependencies: [
+				{ src: 'plugin/math/math.js', async: true },
+				{ src: 'plugin/speech/speech.js', async: true },
+
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'node_modules/revealjs-animated/dist/revealjs-animated.js', async: true },
+			]
+		});
+	</script>
+</body>
+
+</html>
