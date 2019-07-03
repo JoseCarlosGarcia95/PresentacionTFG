@@ -1,0 +1,140 @@
+<head>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .fade {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            top: -25px;
+            background-image: linear-gradient(0deg, transparent, black 75%);
+            z-index: 1;
+        }
+
+        .star-wars {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 800px;
+            color: #feda4a;
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-size: 500%;
+            font-weight: 600;
+            letter-spacing: 6px;
+            line-height: 150%;
+            perspective: 400px;
+            text-align: justify;
+        }
+
+        .crawl {
+            position: relative;
+            top: 9999px;
+            transform-origin: 50% 100%;
+            animation: crawl 60s linear;
+        }
+
+        .crawl>.title {
+            font-size: 90%;
+            text-align: center;
+        }
+
+        .crawl>.title h1 {
+            margin: 0 0 100px;
+            text-transform: uppercase;
+        }
+
+        @keyframes crawl {
+            0% {
+                top: 0;
+                transform: rotateX(20deg) translateZ(0);
+            }
+
+            100% {
+                top: -6000px;
+                transform: rotateX(25deg) translateZ(-2500px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fade"></div>
+
+    <section class="star-wars">
+
+        <div class="crawl">
+
+            <div class="title">
+                <p>Trabajo de fin de grado</p>
+                <h1>Ecuaciones diferenciales difusas</h1>
+                <h2>José Carlos García</h2>
+                <h3>Rafael Rodríguez Galván</h3>
+                <h3>Jesús Medina Moreno</h3>
+            </div>
+
+            <p>
+                [1] Luciana Takata Gomes, Laécio Carvalho de Barros, and Barnabas Bede. Fuzzy differential<br />
+                equations in various approaches. Maths, 1:11–38, 2015.<br />
+                [2] Scholarpedia. Fuzzy sets - http://www.scholarpedia.org/article/fuzzy_sets.<br />
+                [3] Jesus Medina Moreno and Elena Medina Reus. Apuntes de modelización matemática.<br />
+                Maths, 3:1–20, 2018.<br />
+                [4] Samuel Corveleyn. The numerical solution of elliptic partial differential equations with<br />
+                fuzzy coefficients. 06 2014.<br />
+                [5] M. Puri and D. Ralescu. Fuzzy random variables. Maths, 1:409–422, 1986.<br />
+                [6] M. Fukuhara. Intégration des applications mesurables dont la valeur est un compact con-<br />
+                vexe. Publications of the Research Institute for Mathematical Sciences. Kyoto University.<br />
+                Series B. Inst., Univ., 1967.<br />
+                [7] B. Bede. Mathematics of Fuzzy Sets and Fuzzy Logic. 2013.<br />
+                [8] Osmo Kaleva. The cauchy problem for fuzzy differential equations. fuzzy sets syst. 35,<br />
+                389-396. Fuzzy Sets and Systems, 35:389–396, 05 1990.<br />
+                [9] Çagin Ararat and Birgit Rudloff. A characterization theorem for aumann integrals. Set-<br />
+                valued and Variational Analysis, 23(2):305–318, 2015.<br />
+                [10] Madan L Puri and Dan A Ralescu. Fuzzy random variables. Journal of Mathematical<br />
+                Analysis and Applications, 114(2):409 – 422, 1986.<br />
+                [11] O. Kaleva. Fuzzy differential equations. 1987.<br />
+                [12] Barnabás Bede and Luciano Stefanini. Generalized differentiability of fuzzy-valued fun-<br />
+                ctions. Fuzzy Sets and Systems, 230:119 – 141, 2013. Differential Equations Over Fuzzy Spaces - Theory, Applications, and Algorithms.<br />
+                [13] Y. Chalco-Cano and H. Román-Flores. Comparation between some approaches to solve<br />
+                fuzzy differential equations. Fuzzy Sets Syst., 160(11):1517–1527, June 2009.<br />
+                [14] Y. Chalco-Cano and H. Román-Flores. Comparation between some approaches to solve<br />
+                fuzzy differential equations. Fuzzy Sets Syst., 160(11), June 2009.<br />
+                [15] E. Hüllermeier. An approach to modeling and simulation of uncertain dynamical systems.<br />
+                1997.<br />
+                [16] P. Diamond. Time-dependent differential inclusions, cocycle attractors and fuzzy diffe-<br />
+                rential equations.<br />
+                [17] P. Diamond. Brief note on the variation of constants formula for fuzzy differential equa-<br />
+                tions.<br />
+                [18] José Carlos García Ortega. Breve introducción a la programación en paralelo -<br />
+                https://github.com/josecarlosgarcia95/presentacionprogramacionparalelo, 2018.<br />
+                [19] José Carlos García Ortega. Experimentos numéricos
+                https://github.com/josecarlosgarcia95/experimentosnumericos, 2018.<br />
+                [20] Linus Torvalds and dewar. What is acceptable for -ffast-math? (was: associative law<br />
+                incombine). 2001.<br />
+                [21] NASA. ASTRONOMICAL CONSTANTS -
+                http://asa.usno.navy.mil/static/files/2016/astronomical_constants_2016.pd<br />
+                [22] Alireza K Golmankhaneh and Ahmad Jafarian. About fuzzy schrödinger equation. 2014<br />
+                International Conference on Fractional Differentiation and Its Applications, ICFDA 2014,<br />
+                pages 1–5, 06 2014.<br />
+                [23] Amir Sadeghi, Ahmad Izani Md. Ismail, and Ali Jameel. Solving systems of fuzzy diffe-<br />
+                rential equation. International Mathematical Forum, 6:2087 – 2100, 09 2011.<br />
+                [24] Kausik Kumar Majumdar and D. Dutta Majumder. Fuzzy differential inclusions in atmosp-<br />
+                heric and medical cybernetics. IEEE Transactions on Systems, Man, and Cybernetics, Part<br />
+                B (Cybernetics), 34:877–887, 2004.<br />
+                [25] T.H. Skopinski, K.G. Johnson, and Langley Research Center. Determination of azimuth<br />
+                angle at burnout for placing a satellite over a selected earth position. NASA technical<br />
+                note. National Aeronautics and Space Administration, 1960.<br />
+                [26] Shadan Sadigh Behzadi. Solving cauchy reaction-diffusion equation by using picard<br />
+                method. 2013.<br />
+                [27] Douglas C. Giancoli. Physics for Scientists and Engineers. Pearson, 2014.<br />
+                [28] Jesús Rojo. Métodos matemáticos i. Universidad de Valladolid, 2012-2013.
+            </p>
+
+        </div>
+
+    </section>
+</body>

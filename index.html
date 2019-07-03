@@ -14,7 +14,8 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+		integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
 
@@ -160,6 +161,262 @@
 		table th {
 			color: white !important;
 		}
+
+		html {
+			overflow-y: hidden !important;
+		}
+
+		input[type=range].slider {
+			-webkit-appearance: none;
+			width: 100%;
+			margin: 8.35px 0;
+		}
+
+		input[type=range].slider:focus {
+			outline: none;
+		}
+
+		input[type=range].slider::-webkit-slider-runnable-track {
+			width: 100%;
+			height: 13.3px;
+			cursor: pointer;
+			box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+			background: #ff91d8;
+			border-radius: 25px;
+			border: 2.3px solid #dbd58f;
+		}
+
+		input[type=range].slider::-webkit-slider-thumb {
+			box-shadow: 4.1px 4.1px 7.2px #27aaff, 0px 0px 4.1px #41b4ff;
+			border: 5px solid #ffcdff;
+			height: 30px;
+			width: 30px;
+			border-radius: 12px;
+			background: #ffff7d;
+			cursor: pointer;
+			-webkit-appearance: none;
+			margin-top: -10.65px;
+		}
+
+		input[type=range].slider:focus::-webkit-slider-runnable-track {
+			background: #ffbae6;
+		}
+
+		input[type=range].slider::-moz-range-track {
+			width: 100%;
+			height: 13.3px;
+			cursor: pointer;
+			box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+			background: #ff91d8;
+			border-radius: 25px;
+			border: 2.3px solid #dbd58f;
+		}
+
+		input[type=range].slider::-moz-range-thumb {
+			box-shadow: 4.1px 4.1px 7.2px #27aaff, 0px 0px 4.1px #41b4ff;
+			border: 5px solid #ffcdff;
+			height: 30px;
+			width: 30px;
+			border-radius: 12px;
+			background: #ffff7d;
+			cursor: pointer;
+		}
+
+		input[type=range].slider::-ms-track {
+			width: 100%;
+			height: 13.3px;
+			cursor: pointer;
+			background: transparent;
+			border-color: transparent;
+			color: transparent;
+		}
+
+		input[type=range].slider::-ms-fill-lower {
+			background: #ff68ca;
+			border: 2.3px solid #dbd58f;
+			border-radius: 50px;
+			box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+		}
+
+		input[type=range].slider::-ms-fill-upper {
+			background: #ff91d8;
+			border: 2.3px solid #dbd58f;
+			border-radius: 50px;
+			box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+		}
+
+		input[type=range].slider::-ms-thumb {
+			box-shadow: 4.1px 4.1px 7.2px #27aaff, 0px 0px 4.1px #41b4ff;
+			border: 5px solid #ffcdff;
+			height: 30px;
+			width: 30px;
+			border-radius: 12px;
+			background: #ffff7d;
+			cursor: pointer;
+			height: 13.3px;
+		}
+
+		input[type=range].slider:focus::-ms-fill-lower {
+			background: #ff91d8;
+		}
+
+		input[type=range].slider:focus::-ms-fill-upper {
+			background: #ffbae6;
+		}
+
+		input[type=range] {
+			-webkit-appearance: none;
+			margin: 18px 0;
+			width: 50%;
+		}
+
+		input[type=range]:focus {
+			outline: none;
+		}
+
+		input[type=range]::-webkit-slider-runnable-track {
+			width: 50%;
+			height: 8.4px;
+			cursor: pointer;
+			animate: 0.2s;
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+			background: #3071a9;
+			border-radius: 1.3px;
+			border: 0.2px solid #010101;
+		}
+
+		input[type=range]::-webkit-slider-thumb {
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+			-webkit-appearance: none;
+			margin-top: -14px;
+		}
+
+		input[type=range]:focus::-webkit-slider-runnable-track {
+			background: #367ebd;
+		}
+
+		input[type=range]::-moz-range-track {
+			width: 50%;
+			height: 8.4px;
+			cursor: pointer;
+			animate: 0.2s;
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+			background: #3071a9;
+			border-radius: 1.3px;
+			border: 0.2px solid #010101;
+		}
+
+		input[type=range]::-moz-range-thumb {
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+		}
+
+		input[type=range]::-ms-track {
+			width: 50%;
+			height: 8.4px;
+			cursor: pointer;
+			animate: 0.2s;
+			background: transparent;
+			border-color: transparent;
+			border-width: 16px 0;
+			color: transparent;
+		}
+
+		input[type=range]::-ms-fill-lower {
+			background: #2a6495;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		}
+
+		input[type=range]::-ms-fill-upper {
+			background: #3071a9;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+		}
+
+		input[type=range]::-ms-thumb {
+			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+		}
+
+		input[type=range]:focus::-ms-fill-lower {
+			background: #3071a9;
+		}
+
+		input[type=range]:focus::-ms-fill-upper {
+			background: #367ebd;
+		}
+
+		.fade {
+			position: relative;
+			width: 100%;
+			min-height: 60vh;
+			top: -25px;
+			background-image: linear-gradient(0deg, transparent, black 75%);
+			z-index: 1;
+		}
+
+		.star-wars {
+			display: flex;
+			justify-content: center;
+			position: relative;
+			height: 800px;
+			color: #feda4a;
+			font-family: 'Pathway Gothic One', sans-serif;
+			font-size: 500%;
+			font-weight: 600;
+			letter-spacing: 6px;
+			line-height: 150%;
+			perspective: 400px;
+			text-align: justify;
+		}
+
+		.crawl {
+			position: relative;
+			top: 9999px;
+			transform-origin: 50% 100%;
+			animation: crawl 60s linear;
+		}
+
+		.crawl>.title {
+			font-size: 90%;
+			text-align: center;
+		}
+
+		.crawl>.title h1 {
+			margin: 0 0 100px;
+			text-transform: uppercase;
+		}
+
+		@keyframes crawl {
+			0% {
+				top: 0;
+				transform: rotateX(20deg) translateZ(0);
+			}
+
+			100% {
+				top: -6000px;
+				transform: rotateX(25deg) translateZ(-2500px);
+			}
+		}
 	</style>
 
 	<!-- Printing and PDF exports -->
@@ -183,16 +440,20 @@
 				<section data-state="dimbg_08" data-background-image="assets/titlepage.jpg"
 					data-background-color="black" data-background-transition="none">
 					<h1 class="">Resolución numérica de</h1>
-					<h3>Ecuaciones diferenciales difusas</h3>
+					<h1>Ecuaciones diferenciales difusas</h1>
 					<p>
 						<img src="assets/logo_uca.png" width="150"
 							style="border: 0; box-shadow: none; background: none">
 					</p>
-					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
-							alt="Licencia de Creative Commons" style="border-width:0"
-							src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está bajo una
-					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons
-						Reconocimiento 4.0 Internacional</a>.
+					<div style="font-size: 30px; padding: 200px">
+						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+								alt="Licencia de Creative Commons" style="border-width:0"
+								src="https://i.creativecommons.org/l/by/4.0/88x31.png" width="150" /></a><br />Este obra
+						está bajo una
+						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons
+							Reconocimiento 4.0 Internacional</a>
+					</div>
+
 
 				</section>
 
@@ -205,10 +466,6 @@
 							<li>Marco teórico</li>
 							<hr />
 							<li>Conjuntos difusos</li>
-							<ol>
-								<li>Números difusos</li>
-								<li>Principio de extensión de Zadeh</li>
-							</ol>
 							<hr />
 							<li>Ecuaciones diferenciales difusas / Ejemplos</li>
 							<hr />
@@ -275,10 +532,7 @@
 						<div class="" style="padding-top: 6px;" data-animated-duration="100"
 							data-animated-scale-up-to="2">
 							<h1>
-								<i class="fas fa-male" style="color: black"></i> <i style="color: pink;"
-									class="fas fa-assistive-listening-systems"></i> <i style="color: green"
-									class="fas fa-eye"></i> <i class="fas fa-bomb" style="color: orange"></i> <i
-									class="fas fa-ruler" style="color: blue"></i>
+								<i class="fas fa-male" style="color: white"></i>
 							</h1>
 						</div>
 					</div>
@@ -314,18 +568,20 @@
 						\right.,
 						\]
 					</div>
+
+					<h1>
+						<i id="btn-1" class="far fa-lightbulb" style="cursor: pointer;"></i>
+					</h1>
+
 					<div id="idea-1" style="display: none;">
 						<input type="range" id="idea-1-range" min="0" max="100">
+
 						<h3 id="idea-1-alpha">175 cm</h3>
 						<p id="idea-1-male-size" style="font-size: 125px;">
 							&ge;
 							<i class="fas fa-male"></i>
 						</p>
 					</div>
-
-					<h1>
-						<i id="btn-1" class="far fa-lightbulb" style="cursor: pointer;"></i>
-					</h1>
 
 					<script type="text/javascript">
 						var btn1 = document.getElementById('btn-1');
@@ -416,14 +672,29 @@
 							Principio de extensión de Zadeh
 						</h1>
 					</div>
-					\[
-					\mu_{\hat{f}(A)}(y)=\left\{
-					\begin{array}{ccc}
-					\sup_{x\in f^{-1}(y)} \mu_A(x) & si & f^{-1}(y)\neq\emptyset\\
-					0 & si & f^{-1}=\emptyset
-					\end{array}
-					\right. ,
-					\]
+					<div class="fragment fade-in">
+						\[
+						\mu_{\hat{f}(A)}(y)=\left\{
+						\begin{array}{ccc}
+						\sup_{x\in f^{-1}(y)} \mu_A(x) & si & f^{-1}(y)\neq\emptyset\\
+						0 & si & f^{-1}=\emptyset
+						\end{array}
+						\right.
+						\]
+					</div>
+
+					<div class="fragment fade-in">
+						\[
+						\mu_{\hat{f}(A)}(y)=\left\{
+						\begin{array}{ccc}
+						\mu_A(f^{-1}(y)) & si & f^{-1}(y)\neq\emptyset\\
+						0 & si & f^{-1}=\emptyset
+						\end{array}
+						\right.
+						\]
+					</div>
+
+
 				</section>
 
 				<section data-state="intro_3">
@@ -536,19 +807,19 @@
 					<p>
 						Sea $F(x)=A \in \mathcal{F}_\mathcal{H}(\mathbb{R}^n)$ y $x_0 \in \mathbb{R}$:
 					</p>
-					<div class="fragment fade-in">
+					<div class="fragment  fade-in-then-out">
 						\[
 						F(x_0 + h) \circleddash_H F(x_0) = A \circleddash_H A = 0
 						\]
 					</div>
 
-					<div class="fragment fade-in">
+					<div class="fragment  fade-in-then-out">
 						\[
 						F(x_0) \circleddash_H F(x_0 - h) = A \circleddash_H A = 0
 						\]
 					</div>
 
-					<div class="fragment fade-in">
+					<div class="fragment  fade-in-then-out">
 						Por tanto, $F_H'(x_0) = 0$
 					</div>
 				</section>
@@ -563,26 +834,51 @@
 						Sea $F(x)=A x$, con $A=(-1; 0; 1)$ y $x_0 \in \mathbb{R}$
 					</p>
 
-					<p class="fragment fade-in">
+					<p class="fragment  fade-in-then-out">
 						$$
 						F(x_0 + h) \circleddash_H F(x_0) = A(x_0 + h) \circleddash_H A = (-x_0 - h; 0; x+h)
 						\circleddash_H (-x_0;0;x_0)
 						$$
 					</p>
 
-					<p class="fragment fade-in">
-						Si $x_0 < 0$ no estaría definido $(-x_0 - h; 0; x+h)$ ni $(-x_0;0;x_0)$ </p> <p
-							class="fragment fade-in">
-							Si $x_0\geq 0$, $(-x_0 - h; 0; x_0+h) \circleddash_H (-x_0; 0; x_0) = (-h; 0; h)$
+					<p class="fragment fade-in-then-out">
+						Si $x_0 < 0$ no estaría definido $(-x_0 - h; 0; x+h)$ ni $(-x_0;0;x_0)$ <i id="triangular-btn"
+							class="fas fa-info-circle" style="color: orange;"></i>
+
+							<div id="triangular-show" style="display: none;">
+								$$
+								\mu_\mathcal{A}(x)=\left\{
+								\begin{array}{c c c}
+								\frac{x-a}{b-a} & si & x \in [a, b] \\
+								\frac{c-x}{c-b} & si & x \in (b, c] \\
+								0, & si & x \notin [a, c]
+								\end{array}
+								\right.
+								$$
+							</div>
+					</p>
+					<p class="fragment  fade-in-then-out">
+						Si $x_0\geq 0$, $(-x_0 - h; 0; x_0+h) \circleddash_H (-x_0; 0; x_0) = (-h; 0; h)$
 					</p>
 
-					<p class="fragment fade-in">
+					<p class="fragment  fade-in-then-out">
 						Además, $F(x) \circleddash_H F(x - h) = (-h; 0; h)$
 					</p>
 
-					<p class="fragment fade-in">
+					<p class="fragment  fade-in-then-out">
 						Por tanto, $F_H'(x_0) = A $, si $x_0 > 0$.
 					</p>
+
+					<script>
+						var triangularBtn = document.getElementById('triangular-btn');
+						triangularBtn.onclick = function () {
+							if (document.getElementById('triangular-show').style.display == 'block')
+								document.getElementById('triangular-show').style.display = 'none';
+							else
+								document.getElementById('triangular-show').style.display = 'block';
+
+						}
+					</script>
 				</section>
 
 				<section>
@@ -629,44 +925,33 @@
 					</div>
 
 					<div class="fragment fade-in">
-						<ul>
-							<li>
-								\[
-								\begin{array}{c||c}
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
-								\end{array}
-								\]
-							</li>
 
-							<li>
-								\[
-								\begin{array}{c||c}
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
-								\end{array}
-								\]
-							</li>
+						\[
+						\begin{array}{c||c}
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
+						\end{array}
+						\]
 
-							<li>
-								\[
-								\begin{array}{c||c}
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
-								\end{array}
-								\]
-							</li>
+						\[
+						\begin{array}{c||c}
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
+						\end{array}
+						\]
 
-							<li>
-								\[
-								\begin{array}{c||c}
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
-								\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
-								\end{array}
-								\]
-							</li>
-						</ul>
-
+						\[
+						\begin{array}{c||c}
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{h} &
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{-h}
+						\end{array}
+						\]
+						\[
+						\begin{array}{c||c}
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0 + h) \circleddash_H F(x_0)}{-h} &
+						\lim\limits_{h \rightarrow 0^+} \frac{F(x_0) \circleddash_H F(x_0 - h)}{h}
+						\end{array}
+						\]
 					</div>
 				</section>
 
@@ -849,6 +1134,16 @@
 						\end{array}
 						\right.,
 						\]
+						con
+						\[
+						C(y) = \left\{
+						\begin{array}{ccc}
+						3 - y & si & 2 \leq y \leq 3 \\
+						y - 1 & si & 1 \leq y \leq 2 \\
+						0
+						\end{array}
+						\right. .
+						\]
 					</div>
 					<div id="magic-solver-2" style="display: none">
 						\[
@@ -890,23 +1185,7 @@
 						</h2>
 					</div>
 				</section>
-				<section>
-					<div class="overl">
-						<h1>Clasificación según componentes</h1>
-					</div>
 
-					<p class="fragment fade-in">
-						Programación en CPU
-					</p>
-
-					<p class="fragment fade-in">
-						Programación en GPU
-					</p>
-
-					<p class="fragment fade-in">
-						Programación en Cluster
-					</p>
-				</section>
 				<section data-background-image="assets/uca_super.jpg">
 					<div class="overl">
 						<h1>Técnicas de alto rendimiento</h1>
@@ -918,9 +1197,39 @@
 						<h1>Consumo energético</h1>
 					</div>
 
-					<h1>
-						<i class="fas fa-battery-full" style="color: green;font-size: 200px"></i>
-					</h1>
+					<div id="btn-container">
+						<i class="fas fa-battery-full" style="color: green;font-size: 200px; cursor: pointer"></i>
+					</div>
+
+					<div id="battery-schema" style="display: none">
+						<p>
+							<i class="fas fa-plug" style="color: darkcyan;font-size: 200px;"></i> &nbsp;
+							<i class="fas fa-battery-quarter" style="color: orange;font-size: 200px;"></i> &nbsp;
+							<i class="far fa-clock" style="color: lightblue;font-size: 200px;"></i> &nbsp;
+						</p>
+
+						<p>
+							<i class="fas fa-arrow-circle-down" style="font-size: 200px;"></i>
+						</p>
+
+						<p>
+							<i class="fas fa-plug" style="color: darkcyan;font-size: 200px;"></i> &nbsp;
+							<i class="fas fa-spinner" style="color: darkolivegreen;font-size: 200px;"></i> &nbsp;
+							<i class="far fa-clock" style="color: lightblue;font-size: 200px;"></i> &nbsp;
+						</p>
+					</div>
+
+					<script>
+						var btnContainer = document.getElementById('btn-container');
+						btnContainer.onclick = function () {
+							document.getElementById('battery-schema').style.display = '';
+							btnContainer.style.display = 'none';
+							Reveal.prev();
+							Reveal.next();
+						}
+					</script>
+
+
 				</section>
 
 				<section>
@@ -941,6 +1250,8 @@
 							show3.style.display = '';
 							//problem.style.display = 'none';
 							pusher3.style.display = 'none';
+							Reveal.prev();
+							Reveal.next();
 						}
 					</script>
 
@@ -951,7 +1262,12 @@
 						<h1>Algoritmos en precisión mixta</h1>
 					</div>
 
-					<table>
+					<ul class="fragment fade-in-then-out">
+						<li>Resolvemos nuestro problema de forma normal, y usamos números en simple precisión.</li>
+						<li>Cuando converja, resolvemos con números en doble precisión usando como valor inicial la
+							solución anterior</li>
+					</ul>
+					<table class="fragment fade-in">
 						<tr>
 							<th></th>
 							<th>Tiempo de ejecución</th>
@@ -961,7 +1277,7 @@
 						<tr>
 							<td>Simple</td>
 							<td>0.001s</td>
-							<td>99</td>
+							<td><text class="fragment highlight-red">99</text></td>
 							<td>0</td>
 						</tr>
 						<tr>
@@ -973,7 +1289,7 @@
 						<tr>
 							<td>Mixta</td>
 							<td>0.001s</td>
-							<td>99</td>
+							<td class="fragment highlight-red">99</td>
 							<td>166</td>
 						</tr>
 					</table>
@@ -1111,7 +1427,7 @@
 
 					<div class="fragment fade-in">
 						\[
-						y_{i+1} = y_i + h f(x_i, y_i).
+						y_{i+1} = y_i + h f(x_i, y_i)
 						\]
 					</div>
 				</section>
@@ -1140,11 +1456,352 @@
 						y(x_0) & = & a
 						\end{array}
 						\]
-						donde $a \in A$.
+						donde $a \in A$
 					</div>
 				</section>
 
-				
+				<section>
+					<div class="overl">
+						<h1>Experimentos numéricos</h1>
+					</div>
+
+					<h1>
+						<i class="fas fa-sort-numeric-up" style="color: orange;"></i> <i style="color: violet"
+							class="fas fa-flask"></i>
+					</h1>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Ejemplo</h1>
+					</div>
+
+					\[
+					y' = 2x - 3y + 1
+					\]
+					\[
+					y(0) = (-1;0;1).
+					\]
+
+					<div class="fragment fade-in-then-out">
+						Que podemos asociarle:
+						\[
+						y' = 2x - 3y + 1
+						\]
+						\[
+						y(0) = a,
+						\]
+						$a \in [-1, 1]$
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Ejemplo</h1>
+					</div>
+
+					<div class="fragment fade-in-then-out">
+						En primer lugar, hay que discretizar el intervalo $[-1, 1]$, para ello, fijamos m>0 y para cada
+						$i=0...m-1$ se considera una partición dada por:
+						\[
+						a_i = -1 + \frac{2i}{m-1}.
+						\]
+					</div>
+
+					<div class="fragment fade-in-then-out">
+						\[
+						y' = 2x - 3y + 1
+						\]
+						\[
+						y(0) = a_i.
+						\]
+					</div>
+				</section>
+				<section>
+					<div class="overl">
+						<h1>Pruebas</h1>
+					</div>
+
+					<ul>
+						<li>Se van a hacer distintas pruebas cambiando el tamaño de la partición de $A$, desde 0 hasta
+							10000</li>
+						<li>Python: Secuencial & Paralelo</li>
+						<li>Bajo nivel: Simple precisión, doble precisión & compilación mejorada</li>
+					</ul>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de alto nivel</h1>
+					</div>
+
+					<img src="assets/euler_test_python.png" width="1000" \>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de alto nivel</h1>
+					</div>
+
+					<table>
+						<tr>
+							<th>Tests</th>
+							<th>2.7 Paralelo</th>
+							<th>3.5 Paralelo</th>
+							<th>2.7 Secuencial</th>
+							<th>3.5 Secuencial</th>
+						</tr>
+						<tr>
+							<td>Tiempos</td>
+							<td>61 minutos</td>
+							<td>61 minutos</td>
+							<td>85.22 minutos</td>
+							<td>100 minutos</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Conclusiones</h1>
+					</div>
+
+					<ul>
+
+						<li class="fragment fade-in">
+							La forma menos eficiente de resolver el problema es usando una versión más reciente de
+							Python.
+						</li>
+						<li class="fragment fade-in">
+							Si se quiere resolver un problema pequeño $n < 2000$ es conveniente hacerlo de manera
+								secuencial. </li> <li class="fragment fade-in">
+								El crecimiento del tiempo de ejecución en paralelo crece mucho menor que en secuencial.
+						</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de bajo nivel</h1>
+					</div>
+
+					<img src="assets/euler_test_c1.png" width="1000" \>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de bajo nivel</h1>
+					</div>
+
+					<table>
+						<tr>
+							<th>Tests</th>
+							<th>Fastmath simple precisión</th>
+							<th>Fastmath doble precisión</th>
+							<th>Doble precisión</th>
+							<th>Simple precisión</th>
+						</tr>
+						<tr>
+							<td>Tiempos</td>
+							<td>11.9 <text style="color: red">segundos</text></td>
+							<td>12.15 <text style="color: red">segundos</text></td>
+							<td>75.80 <text style="color: red">segundos</text></td>
+							<td>85 <text style="color: red">segundos</text></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h2>Pruebas de bajo nivel: + 10000 iteraciones</h2>
+					</div>
+
+					<img src="assets/euler_test_c2.png" width="1000" \>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h2>Pruebas de bajo nivel: + 10000 iteraciones</h2>
+					</div>
+
+					<table>
+						<tr>
+							<th>Tests</th>
+							<th>Fastmath simple precisión</th>
+							<th>Fastmath doble precisión</th>
+						</tr>
+						<tr>
+							<td>Tiempos</td>
+							<td>1278.03 <text style="color: red">segundos</text></td>
+							<td>1341.10 <text style="color: red">segundos</text></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Consumo energético $10^{5}$ iteraciones</h1>
+					</div>
+
+					<table>
+						<tr>
+							<th>Tests</th>
+							<th>Fastmath simple precisión</th>
+							<th>Fastmath doble precisión</th>
+							<th>Doble precisión</th>
+							<th>Simple precisión</th>
+						</tr>
+						<tr>
+							<td>Energía</td>
+							<td>$118.644028 \mu A/s$</td>
+							<td>$118.644058 \mu A/s$</td>
+							<td>$ 152.542389 \mu A/s$</td>
+							<td>$ 169.491638 \mu A/s$</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Método de Runge-Kutta difuso</h1>
+					</div>
+					\[
+					\begin{array}{ccc}
+					y' & = &f(x, y) \\
+					y(x_0) & = & A
+					\end{array},
+					\]
+
+					<div class="fragment fade-in">
+						Podemos considerar una discretización de $A$ igual que en el método de Euler
+						\[
+						\begin{array}{ccc}
+						y' & = &f(x, y) \\
+						y(x_0) & = & a
+						\end{array},
+						\]
+					</div>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas</h1>
+					</div>
+
+					<ul>
+						<li>
+							Mismo problema planteado para el método de Euler
+						</li>
+						<li>
+							Se van a comparar ejecuciones con distinto tamaño de la discretización de $A$
+						</li>
+						<li>
+							En este caso, sólo se van a hacer pruebas de bajo nivel.
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<div class="overl">
+						<h1>Experimentos numéricos</h1>
+					</div>
+
+					<h1>
+						<i class="fas fa-sort-numeric-up" style="color: orange;"></i> <i style="color: violet"
+							class="fas fa-flask"></i>
+					</h1>
+
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de bajo nivel</h1>
+					</div>
+
+					<img src="assets/rk_test_c1.png" width="1000" \>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Pruebas de bajo nivel</h1>
+					</div>
+
+					<table>
+						<tr>
+							<th>Tests</th>
+							<th>Fastmath simple precisión</th>
+							<th>Fastmath doble precisión</th>
+							<th>Doble precisión</th>
+							<th>Simple precisión</th>
+						</tr>
+						<tr>
+							<td>Tiempos</td>
+							<td>10 <text style="color: red">segundos</text></td>
+							<td>10 <text style="color: red">segundos</text></td>
+							<td>238 <text style="color: red">segundos</text></td>
+							<td>270 <text style="color: red">segundos</text></td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Comparativas</h1>
+					</div>
+
+					<ul>
+						<li class="fragment fade-in">
+							Los modos básicos son más rápidos en el método de Euler, también tiene más sentido, pues en
+							el método de Runge-Kutta necesita de más operaciones.
+						</li>
+
+						<li class="fragment fade-in">
+							Aunque Runge-Kutta precise de más operaciones, Runge Kutta tiene un mayor orden de
+							convergencia.
+						</li>
+
+						<li class="fragment fade-in">
+							La <b>mejor forma de resolver</b> un problema de ecuaciones diferenciales difusas es
+							mediante <b>Runge-Kutta con la flag -ofast</b>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<div class="overl">
+						<h1>Paralelización</h1>
+					</div>
+
+					<ul>
+						<li>
+							Se parte de una función determinista y se considera la ecuación difusa asociada a ella
+							mediante el principio de extensión
+						</li>
+
+						<li>
+							Se considera una discretización del número difuso.
+						</li>
+
+						<li>
+							Se resuelve numéricamente para cada uno de los valores que se encuentra en la
+							discretización.
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<section data-background-image="assets/ciencias_fondo.jpg">
+				<div class="overl">
+					<h1>Conclusiones</h1>
+				</div>
+
+				<div class="fragment fade-in">
+					<button onclick="window.location='theend.html'" type="button">Terminar</button>
+				</div>
 			</section>
 		</div>
 	</div>
